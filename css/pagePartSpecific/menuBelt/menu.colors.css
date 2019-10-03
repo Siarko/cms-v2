@@ -1,0 +1,12 @@
+:root{
+    --link-text-color: #e9e9e9;
+    --link-text-color-hovered: #cbcbcb;
+    --link-text-color-active: black;
+    --link-shadow-active: inset 0 0 10px 0 rgba(0, 0, 0, 0.47);
+    --menu-bg: #348dbd;
+    --menu-bg-hovered: #3791c5;
+
+    --home-button-hovered: #1479AF;
+    --menu-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.47);
+    --menu-button-shadow: 4px 4px 10px 0 rgba(0, 0, 0, 0.47);
+}

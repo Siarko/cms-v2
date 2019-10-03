@@ -1,0 +1,23 @@
+
+.CF_page_position{
+    display: flex;
+    background: var(--cs-page-bg);
+    margin-bottom: 10px;
+    padding: 5px;
+}
+.CF_page_position{
+    color: var(--cs-page-text);
+}
+.CF_image{
+    width: 20%;
+    max-height: 200px;
+    background-position: center;
+    background-size: cover;
+}
+.CF_texts{
+    margin: 10px;
+    width: 80%;
+}
+.CF_description{
+    margin-left: 10px;
+}

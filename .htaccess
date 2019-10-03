@@ -1,0 +1,10 @@
+AddHandler application/x-httpd-php73 .php
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule (.*) index.php/$1 [L,QSA,PT]
+AddType application/vnd.ms-fontobject    .eot
+AddType application/x-font-ttf           .ttf
+AddType application/font-woff            .woff
+php_value upload_max_filesize 40M
+php_value post_max_size 42M

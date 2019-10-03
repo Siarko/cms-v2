@@ -1,0 +1,31 @@
+<div>
+    <div style="margin-bottom: 20px">Zarządzanie lokalizacją strony:
+        <span class="label primary" data-inject="(this.language === null?'brak':this.url+'/'+this.language)"></span>
+    </div>
+    <table class="rightPadding30 inputTable">
+        <tr>
+            <td>Język</td>
+            <td data-inject="this.languageInput"></td>
+        </tr>
+        <tr>
+            <td>Nazwa w menu</td>
+            <td data-inject="this.menuNameInput"></td>
+        </tr>
+        <tr>
+            <td>Widoczność w menu</td>
+            <td data-inject="this.menuVisibility"></td>
+        </tr>
+        <tr>
+            <td>Podłączony plik</td>
+            <td data-inject="this.connectedFile"></td>
+        </tr>
+        <tr>
+            <td>Nagłówek</td>
+            <td data-inject="this.headerText"></td>
+        </tr>
+        <tr>
+            <td>Treść tekstowa</td>
+            <td></td>
+        </tr>
+    </table>
+</div>

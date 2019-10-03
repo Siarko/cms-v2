@@ -1,0 +1,326 @@
+:root{
+    --font-size: 1.39vw;
+    --main-container-width: 70%;
+    --full-width: 100%;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: var(--font-size);
+    background: var(--common-body-background);
+}
+*::-webkit-scrollbar{
+    width: 7px;
+}
+*::-webkit-scrollbar-track{
+    background: var(--common-scroll-bg);
+}
+*::-webkit-scrollbar-thumb{
+    background: var(--main-blue);
+}
+
+pre{
+    white-space: pre-wrap;
+}
+/*CONTENT TOOLS*/
+
+.ct-widget.ct-ignition{
+    top: 9vh!important;
+    right: 150px;
+    left: auto !important;
+}
+.ct-widget.ct-toolbox{
+    right: 150px !important;
+    left: auto !important;
+}
+
+/*LABEL*/
+.label{
+    padding: 5px;
+}
+.label.primary{
+    background: #2a864b;
+}
+
+/* Template */
+#container{
+    width: var(--main-container-width);
+    margin-left:  auto;
+    margin-right: auto;
+}
+#content{
+    width: 100%;
+    background: var(--common-content-bg);
+    min-height: 100vh;
+    padding: 5px;
+    box-sizing: border-box;
+    color: var(--common-content-text)
+}
+#footer{
+    padding-left: 5%;
+    color: var(--common-footer-text);
+    clear: both;
+}
+
+/*LINKS*/
+
+a:any-link{
+    color: var(--common-link-color);
+    text-decoration: none;
+}
+a:any-link:hover{
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 800px){
+    #container{
+        width: 100%;
+    }
+}
+@media screen and (max-height: 500px) {
+
+}
+@media screen and (max-width: 500px){
+    #sideBar{
+        width: 100%;
+        background: yellow;
+        height: 200px;
+        float: left;
+    }
+    #content{
+        width: 100%;
+    }
+    #container{
+        width: 100%;
+    }
+    #menu a.link{
+        display: none !important;
+    }
+}
+
+input:-webkit-autofill {
+    box-shadow: 0 0 0 30px white inset;
+}
+
+.labeledInput{
+    height: 20px;
+    background: #318bb9;
+    margin-top: 3px;
+}
+.labeledInput>span{
+    line-height: 20px;
+    font-size: 15px;
+    width: 30%;
+    display: block;
+    float: left;
+}
+.labeledInput>input{
+    -webkit-appearance: textfield;
+    box-shadow: 0 0 0 30px #2d7faa inset;
+    color: white;
+    height: 100%;
+    width: 70%;
+    border: none;
+    -webkit-text-fill-color: #ffffff !important;
+}
+.labeledInput>input:hover{
+    box-shadow: 0 0 0 30px #3da1dc inset;
+}
+
+input[type="submit"]{
+    background: #40b8ec;
+    border: none;
+    font-weight: bold;
+    color: #e9e9e9;
+    cursor: pointer;
+    padding: 3px;
+    border-radius: 0;
+    width: 100%;
+    transition: box-shadow 0.1s;
+    margin-top: 3px;
+}
+input[type="submit"]:hover{
+    background: #3ca9dd;
+    color: black;
+    box-shadow: 1px 1px 10px 0 rgba(0,0,0,0.47);
+}
+
+form{
+    margin:0;
+}
+
+.inputWithLabel{
+    height: 30px;
+    line-height: 30px;
+}
+.inputWithLabel:hover{
+    /*background: red;*/
+}
+input[type="text"], input[type="password"]{
+    margin-top: 2px;
+    outline: 0;
+    border: none;
+    background: #ccc;
+    padding-left: 3px;
+    color: black;
+    text-align: center;
+}
+input[type="text"]:focus, input[type="password"]:focus{
+    background: #33acf3;
+    color: white;
+}
+input[type="text"]::placeholder, input[type="password"]::placeholder{
+    text-align: center;
+}
+input[type="text"]:focus::placeholder, input[type="password"]:focus::placeholder{
+    color: #c2f3ff;
+}
+
+/*TABLES*/
+
+table{
+    color: inherit;
+    border-collapse: collapse;
+}
+td,th{
+    padding: 3px;
+}
+tr:nth-child(even){
+    background: #307159;
+}
+table.rightPadding30 td:first-of-type{
+    padding-right: 30px;
+}
+table.inputTable td{
+    height: 30px;
+}
+
+
+span.button{
+
+}
+
+.inputWithLabel{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin-bottom: 2px;
+}
+.inputWithLabel:hover{
+    background: #e2e2e2;
+}
+.inputWithLabel>span{
+    margin-right: 10px;
+    font-size: 18px;
+}
+.inputWithLabel>input{
+    box-sizing: border-box;
+}
+.inputWithLabel>select{
+    min-width: 172px;
+}
+
+button{
+    padding: 5px;
+    box-shadow: none;
+    border: none;
+    background: #dddddd;
+    cursor: pointer;
+}
+button:hover{
+    background: #d1d1d1;
+}
+button:focus{
+    background: #a8cbd1;
+}
+button:active{
+    background: #2196F3;
+}
+button.fullWidth{
+    width: 100%;
+}
+
+span.requestInput{
+    display: flex;
+    align-items: stretch;
+    align-content: flex-start;
+
+}
+span.requestInput span{
+    display: inline-block;
+    margin-top: 2px;
+    margin-left: 2px;
+    font-size: 25px;
+    vertical-align: middle;
+    width: 30px;
+    text-align: center;
+    cursor: pointer;
+}
+span.requestInput>span:hover{
+    color: var(--button);
+    background: #2196F3;
+}
+
+/* FLAG GALLERY*/
+
+.flagGallery{
+    overflow-y: scroll;
+    font-family: Tahoma, Arial, serif;
+}
+.flagBox{
+    display: inline-block;
+    padding: 5px;
+    border-radius: 3px;
+    background: #b7b7b7;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    color: black;
+}
+.flagBox:hover{
+    background: #a3a3a3;
+}
+.flagGallery img{
+    height: auto;
+    max-width: 100%;
+}
+.flagGallery span{
+    display: block;
+    text-align: center;
+}
+
+/* AUTOCOMPLETE */
+.autocomplete{
+    position: relative;
+}
+.autocomplete ul{
+    background: var(--AC-list-bg);
+    position: absolute;
+    top: 30px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-height: 0;
+    overflow-y: scroll;
+    overflow-x: auto;
+    transition: max-height 0.2s;
+    width: 100%;
+}
+.autocomplete ul.active{
+    max-height: 400px;
+    z-index: 10;
+}
+.autocomplete li{
+    padding: 2px 5px;
+    cursor: pointer;
+    color: var(--AC-item-text);
+}
+.autocomplete li:hover, .autocomplete li.hover{
+    background: var(--AC-item-hover-bg);
+}
+
+x-dynamic{
+    display: block;
+}

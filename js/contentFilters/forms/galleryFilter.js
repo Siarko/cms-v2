@@ -1,0 +1,1 @@
+window.CF_GalleryFilter = function(){};

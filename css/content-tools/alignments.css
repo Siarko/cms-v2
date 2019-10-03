@@ -1,0 +1,59 @@
+[data-editable] iframe,
+[data-editable] image,
+[data-editable] [data-ce-tag=img],
+[data-editable] img,
+[data-editable] video {
+    clear: both;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+}
+
+/* Left align */
+[data-editable] .align-left {
+    clear: initial;
+    float: left;
+    margin-right: 0.5em;
+}
+
+/* Right align */
+[data-editable].align-right {
+    clear: initial;
+    float: right;
+    margin-left: 0.5em;
+}
+img.align-right{
+    float:right;
+}
+img.align-left{
+    float: left;
+}
+
+/* Alignment styles for text in editable regions */
+[data-editable] .text-center {
+    text-align: center;
+}
+
+[data-editable] .text-left {
+    text-align: left;
+}
+
+[data-editable] .text-right {
+    text-align: right;
+}
+
+.ct-ignition__button--edit{
+    background: #bc0000 !important;
+}
+
+.ct-widget.ct-ignition{
+    top: 6.5vh!important;
+}
+
+.ce-element--type-image{
+    background: gray;
+    max-width: 100%;
+    background-position: center;
+    background-size: cover;
+}

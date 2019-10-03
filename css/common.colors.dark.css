@@ -1,0 +1,14 @@
+:root{
+    --main-blue: #348dbd;
+    --common-body-background: #323537;
+    --common-content-bg: #30302F;
+    --common-footer-text: #b5bcc4;
+
+    --common-content-text: #cecece;
+    --common-link-color: #0078c1;
+
+    /*AUTOCOMPLETE*/
+    --AC-list-bg: #1e7caa;
+    --AC-item-hover-bg: #1b6c93;
+    --AC-item-text: #cbcbcb;
+}

@@ -1,0 +1,447 @@
+:root{
+    --menuHiddenWidth: 30px;
+    --menuMaxWidth: 150px;
+    --menuSlideTime: 0.3s;
+    --tabChangeTime: 1s;
+    --menuTextColor: #2cb900;
+    --tabsBackground: #475b44;
+
+    --buttonRed: red;
+    --buttonRedColor: white;
+    --buttonRedHover: #c60000;
+
+    --button: #27582f;
+}
+
+
+body{
+    background: #565b4b;
+    padding-left: 40px;
+    font-family: 'Advent Pro', sans-serif;
+    box-sizing: border-box;
+    transition: padding var(--menuSlideTime);
+}
+body.menuOut{
+    padding-left: var(--menuMaxWidth);
+}
+
+a{
+    color: #f8ee11;
+    font-weight: bold;
+}
+.sideMenuHolder{
+    position: fixed;
+    left:0;
+    top:0;
+    z-index: 1;
+}
+#sidemenu{
+    height: 100vh;
+    width: var(--menuHiddenWidth);
+    background: #212121;
+    box-sizing: border-box;
+    overflow: hidden;
+    transition-timing-function: ease-in;
+    transition: width var(--menuSlideTime);
+    float: left;
+    position: relative;
+}
+#sidemenu.out{
+    width: var(--menuMaxWidth);
+}
+#sidemenu span{
+    transition: left var(--menuSlideTime);
+    position: absolute;
+    text-align: center;
+}
+#sidemenu span.label{
+    text-align: left;
+    padding-left: 5px;
+    top: 0;
+}
+#sidemenu span.icon{
+    width: var(--menuHiddenWidth);
+    left: 0;
+}
+#sidemenu span.label{
+    left: var(--menuHiddenWidth);
+    width: var(--menuMaxWidth);
+}
+#sidemenu.out span.icon{
+    left: calc(-1 * var(--menuHiddenWidth));
+}
+#sidemenu.out span.icon.cmsLogo{
+    margin-top: 0;
+}
+#sidemenu.out span.label{
+    left: 0;
+}
+
+.cmsLogo>img{
+    width: 30px;
+}
+
+.header{
+    color: #6ffb55;
+    padding-left: 40px;
+    font-size: 30px;
+}
+
+.content{
+    /*color: #c0fbbb;*/
+    margin-left: 10px;
+    animation-name: font-color;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+}
+
+#blinker{
+    opacity: 1;
+}
+.hidden{
+    opacity: 0 !important;
+}
+
+ol.menu{
+    margin:0;
+    padding:0;
+    list-style-type: none;
+    font-size: 20px;
+    color: var(--menuTextColor);
+    text-align: center;
+    cursor: pointer;
+}
+ol.menu>li{
+    display: block;
+    white-space: nowrap;
+    height: 30px;
+    line-height: 25px !important;
+    position: relative;
+    margin-bottom: 5px;
+    box-sizing: border-box;
+    padding-top: 5px;
+}
+ol.menu>li.cmsLogo{
+    padding-top: 0;
+    margin-top: 5px;
+}
+ol.menu>li:hover{
+    background: #305d00;
+    color: #54ff00;
+}
+ol.menu>li.active{
+    background: #386600;
+    color: #32ff00;
+}
+
+@keyframes font-color {
+    0%{
+        color: #c0fbbb;
+    }
+    40%{
+        color: #76fb62;
+    }
+    50%{
+        color: #8efb77;
+    }
+    70%{
+        color: #c0fbbb;
+    }
+    100%{
+        color: #c0fbbb;
+    }
+}
+
+#tabContainer{
+    animation-fill-mode: forwards;
+    animation-duration: 4s;
+    animation-name: fadeIn;
+}
+
+.tab{
+    width: auto;
+    max-width: 90vw;
+    height: auto;
+    max-height: 85vh;
+    margin-left: 10px;
+    margin-top: 20px;
+    position: absolute;
+    overflow-y: auto;
+    box-sizing: border-box;
+    padding: 5px;
+    background-color: var(--tabsBackground);
+
+}
+.tab.noBg{
+    background: inherit;
+}
+.tabInactive{
+    animation-fill-mode: forwards;
+    animation-duration: var(--tabChangeTime);
+    animation-name: fadeOut;
+}
+.tabActive{
+    animation-fill-mode: forwards;
+    animation-duration: var(--tabChangeTime);
+    animation-name: fadeIn;
+}
+
+.tab .loading{
+    height: 50vh;
+    width: 90vw;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    animation-name: loading-background;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+@keyframes loading-background {
+    0%{
+        background: #505544;
+    }
+    50%{
+        background: #47553f;
+    }
+    100%{background: #505544;}
+}
+
+@keyframes fadeOut {
+    0%{
+        opacity:1;
+        visibility: visible;
+    }
+    100%{
+        opacity:0;
+        visibility: hidden;
+    }
+}
+
+@keyframes fadeIn {
+    0%{
+        opacity: 0;
+        visibility: visible;
+    }
+    100%{
+        opacity:1;
+    }
+}
+
+.row{
+    display: flex;
+}
+/*BOX*/
+.box{
+    padding: 5px;
+    background-color: var(--tabsBackground);
+    border-radius: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+.box>.boxTitle{
+    margin-bottom: 10px;
+}
+.box>.boxContent{
+    padding-left: 10px;
+}
+
+/*INPUT*/
+.inputRow{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    height: 30px;
+
+}
+.inputRow img{
+    max-height: 100%;
+}
+.inputRow>label:not(.switch){
+    display: inline-block;
+    width: 50%;
+    margin-right: 30px;
+}
+.inputRow>div{
+    display: flex;
+    align-items: stretch;
+}
+
+input[type="text"]{
+    margin-top: 2px;
+    height: 25px;
+    outline: 0;
+    border: none;
+    background: #73cf6d;
+    padding-left: 3px;
+    color: black;
+    float: right;
+}
+input[type="text"]:disabled{
+    background: #468543;
+}
+input[type="text"]::placeholder{
+    color: #292929;
+}
+input[type="text"]:focus{
+    background: #cdff36;
+    color: black;
+}
+.inputLabel{
+    margin-right: 10px;
+}
+button{
+    outline: 0;
+    background: #53a453;
+    color: inherit;
+    font-weight: bold;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+}
+button.red{
+    background: var(--buttonRed);
+    color: var(--buttonRedColor);
+}
+button.red:hover{
+    background: var(--buttonRedHover);
+}
+.fullWidth{
+    width: 100%;
+}
+button:active{
+    background: #19371e;
+}
+button:hover{
+    background: var(--button);
+}
+
+span.button{
+    cursor: pointer;
+    border-radius: 2px;
+    padding: 2px;
+}
+span.button:hover > svg{
+    animation: fa-spin 2s infinite linear;
+}
+span.button:active > svg{
+    animation: fa-spin 1s infinite linear;
+}
+
+/*SUBMIT*/
+input[type="submit"]{
+    background: #53a453;
+    border: none;
+    font-weight: bold;
+    color: inherit;
+    cursor: pointer;
+    padding: 3px;
+    border-radius: 0;
+    width: 100%;
+    transition: box-shadow 0.1s;
+    margin-top: 3px;
+}
+input[type="submit"]:hover {
+    background: #27582f;
+    color: black;
+    box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.47);
+}
+
+/*FILES*/
+#tab_media{
+    overflow-y: visible;
+}
+table.fileList tr{
+    cursor: pointer;
+}
+table.fileList tr:hover{
+    font-weight: bold;
+}
+#fileList{
+    max-height: 80vh;
+    overflow-y: auto;
+}
+#fileList input{
+    float: left;
+}
+
+/*USERS*/
+.tab>.content{
+    display: flex;
+}
+.userList{
+    float: left;
+}
+.userDetails{
+    float: right;
+    background: var(--tabsBackground);
+    margin-left: 10px;
+    padding-left: 5px;
+    border-left:2px dashed limegreen;
+}
+
+/* TOOLTIP */
+.jBox-TooltipRoot .jBox-container {
+    border-radius: 3px;
+    background: #000;
+    box-shadow: 0 0 6px rgba(0, 0, 0, .4);
+    animation-name: font-color;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+}
+
+/*PAGES*/
+
+.pageSettings{
+    margin-left: 70px;
+}
+
+.localizationSettings{
+    margin-left: 20px;
+}
+
+
+/*JBOX MODAL*/
+
+.jBox-Modal .jBox-title {
+    border-radius: 4px 4px 0 0;
+    padding: 15px 20px;
+    background: #1b1f19;
+    color: var(--menuTextColor);
+    border-bottom: 1px solid #3d3d3d;
+}
+.jBox-Confirm .jBox-content{
+    color: red;
+}
+.jBox-container {
+    background: #1b1f19;
+}
+
+/* Pointer */
+
+.jBox-TooltipRoot .jBox-pointer:after {
+    background: #000;
+}
+
+/* Close button */
+
+.jBox-TooltipRoot .jBox-closeButton {
+    background: #000;
+}
+
+.jBox-TooltipRoot.jBox-closeButton-box:before {
+    box-shadow: 0 0 6px rgba(0, 0, 0, .4);
+}
+
+.jBox-TooltipRoot.jBox-closeButton-box .jBox-closeButton path {
+    fill: #ddd;
+}
+
+.jBox-TooltipRoot.jBox-closeButton-box .jBox-closeButton:hover path {
+    fill: #fff;
+}
+
+.jBox-TooltipRoot.jBox-closeButton-box .jBox-closeButton:active path {
+    fill: #bbb;
+}

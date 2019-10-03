@@ -1,0 +1,14 @@
+:root{
+    --login-body-bg: #275582;
+    --login-box-bg: #232422;
+    --login-box-title-text: #d1d1d1;
+    --login-input-icon: #d1d1d1;
+    --login-button-text: #d1d1d1;
+    --login-button-bg: #292928;
+    --login-button-hover-bg: #363635;
+    --login-button-focus-bg: #363635;
+    --login-button-active-bg: #454544;
+
+    --login-input-bg: #292928;
+    --login-input-text: #d1d1d1;
+}

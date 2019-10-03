@@ -1,0 +1,86 @@
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--login-body-bg);
+    font-family: Roboto, Tahoma, Arial, serif;
+}
+
+.container{
+    margin-left: auto;
+    margin-right: auto;
+    background: var(--login-box-bg);
+    border-radius: 4px;
+    padding: 40px 40px;
+}
+
+.container>.title{
+    text-align: center;
+    padding: 5px 0 5px 0;
+    color: var(--login-box-title-text);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.inputRow{
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+input[type="text"],input[type="password"]{
+    text-align: left;
+    height: 40px;
+    width: 300px;
+    font-size: 20px;
+    margin-right: 10px;
+    padding-left: 10px;
+    background: var(--login-input-bg) !important;
+    color: var(--login-input-text) !important;
+}
+
+input[type="text"]::placeholder, input[type="password"]::placeholder{
+    text-align: left;
+}
+.icon{
+    color: var(--login-input-icon);
+}
+
+button{
+    padding: 10px;
+    font-weight: bold;
+    font-family: Roboto;
+    font-size: 20px;
+    color: var(--login-button-text);
+    background: var(--login-button-bg);
+}
+
+a.button{
+    display: block;
+    text-decoration: none;
+    padding: 10px;
+    font-weight: bold;
+    font-family: Roboto;
+    font-size: 20px;
+    color: var(--login-button-text);
+
+    box-shadow: none;
+    border: none;
+    background: var(--login-button-bg);
+    cursor: pointer;
+    text-align: center;
+}
+a.button.fullWidth{
+    width: 100%;
+}
+.button:hover{
+    background: var(--login-button-hover-bg);
+}
+.button:focus{
+    background: var(--login-button-focus-bg);
+}
+.button:active{
+    background: var(--login-button-active-bg);
+}

@@ -1,0 +1,84 @@
+pff...
+ok,
+
+Przed wywołaniem jakiejkolwiek metody z jakiejkolwiek klasy w Hub warto wywołać:
+    Hub::get()
+    Spowoduje to załadowanie wszystkich klas do zmiennych
+    Domyślna kolejność ładowania klas:
+    "Util", "Settings", "Url", "Db", "UserDb", "User", "Auth","PageDb", "PageService", "ElementsDb", "Elements"
+
+    Note: Każda ładowana klasa otrzymuje w konstruktorze aktualną wersję Hub. Dostępny w tym czasie Hub nie ma
+        poprawnie załadowanych klas.
+
+Constants - statyczna klasa, zawiera stałe używane przez np Hub a także funkcje do logów. Nie ładowana przez
+    Hub, dostępna cały czas po dołączeniu pliku Constants.php
+
+Url - klasa do zarządzania całym url. Aplikacja powinna używać nice linków
+    Konstruktor: Jeżeli link jest pusty, np: mk.pl/ - przekierowuje żądanie do adresu podanego w
+        settings->redirectOnEmpty
+    redirectTo(string adres) - przekierowuje klienta do wybranego adresu wewnętrznego
+        (adres wewnętrzny to np dla mk.pl/CMS_MKII/abcd - abcd. CMS_MKII to podfolder aplikacji)
+    getPrefix() - zwraca prefix - domenę i podfolder
+    getReal() - zwraca prawdziwy - surowy adres, ale wewnętrzny. Jako tablica
+    get() - zwraca przetłumaczony przez metodę translate() adres REST
+    translate() - bierze Settings::restUrlPrefix, surowy adres i:
+        Jeżeli w surowym adresie pierwszym członem jest restUrlPrefix to oddaje adres jako string.
+        Jeżeli nie to dodaje do adresu prefix i "page" i oddaje adres
+
+Routing:
+    Rest:
+    Hub::get()->Rest->getInstance() - zwraca instancję api rest(mam nadzieję że wyjdzie z tego rest)
+
+    Działania dla żądania POST:
+    $rest->post('#regex#', function($SzukanaZRegexu) use ($rest){
+        //działania dla żądania POST
+        $rest->json(function(){
+            //działania dla żadania zawartości w json
+        });
+        $rest->html(function(){
+            //działania dla żądania zawartości w html
+        });
+    });
+
+    Taki sam schemat obowiązuje dla GET:
+    $rest->get(regex, function(){
+        //itp
+    });
+
+    Metody klasy rest:
+    setUrl(url) - ustawia parsowany przez routing url, watość najlepiej pobrać z Hub::request->getRestUrl()
+    setMethod(metoda) - ustawia metodę [post/get], wartość z Hub::request->getMethod()
+    setRequestedType( typ ) - ustawia typ żądanej zawartości, wartość można pobrać z Hub::request->getContentType()
+
+    Aby wykonać działania ustawione w metodach post lub get itp:
+    $rest->parse();
+
+DomBuilder - klasa do budowania dokumentu wyjściowego
+
+    setCharset(string charset) - ustawia charset strony w tagu meta
+    addStyle(string nazwa) - dodaje styl css o danej nazwie, bazowa ścieżka opisana w Constants.
+        Nazwa bez rozszerzenia
+    addScript(string nazwa) - dodaje skrypt js o danej nazwie, bazowa ścieżka opisanaw Constants.
+        Nazwa bez rozszerzenia
+    body(string text) - dodaje dany tekst do zawartości tagu body
+    jsonMode(bool mode) - ustawia tryb wyświetlania strony, jeżeli jako json, pomijane są tagi html,head,body
+    build(bool show) - składa stronę do kupy, jeżeli show == true, wyświetla, w przeciwnym razie zwraca. domyślnie zwraca
+
+Przetwarzanie Strony - Template, PageService, Elements
+    Najpierw pobrać obiekt strony poprzez:
+        Hub::get()->PageService->getInstance(string url) - gdzie url jest wewnętrznym adresem
+    Potem pobrać obiekt szablonu:
+        Hub::get()->Template->getInstance(int id) - gdzie id szablonu znajduje się w obiekcie klasy PageService
+        $page->getTemplateId();
+    Przetworzyć szblon przez $template->parse(array zmienne) - gdzie zmienne to tablica np:
+        ["zmienna1" => "wartość 1"]
+        zmienna $zmienna1 w szablonie zostanie zamieniona na "wartość 1"
+        Metoda zwraca string - przetworzony szablon
+        Np można wstrzyknąć zawartość strony do szablonu przez podanie w szablonie zmiennej "$Zawartosc" a w zmiennych
+        do metody parse ["Zawartosc" => $page->getContent()]. Zmienna Zawartosc zostanie podmieniona przez zawartosc
+        strony w z obiektu $page.
+        Potem można wyświetlić szablon używając:
+            Hub::get()->DomBuilder->body($wartoscZwracanaPrzezParse);
+
+Użytkownicy - klasu User, Auth
+    User - klasa reprezentująca użytkownika

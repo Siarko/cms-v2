@@ -1,0 +1,70 @@
+
+#consoleContainer::-webkit-scrollbar{
+    width: 5px;
+}
+#consoleContainer::-webkit-scrollbar-track{
+    background: #4d4d4d;
+}
+#consoleContainer::-webkit-scrollbar-thumb{
+    background: #44eb34;
+}
+
+#consoleContainer {
+    font-family: monospace;
+    width: 477px;
+    height: 233px;
+    background: #4d4d4d;
+    color: #44eb34;
+    font-size: 18px;
+    padding: 5px;
+    overflow-y: scroll;
+    position: absolute;
+}
+
+.consoleEntry{
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+.consoleMessageBox{
+    padding-left: 30px;
+}
+.consoleMessageBox.info{
+    background: #365f36;
+}
+.consoleMessageBox.warn{
+    background: #7d763b;
+    color: #c2b12b;
+}
+.consoleMessageBox.err{
+    background: #70282c;
+    color: #cd1113;
+}
+.entryTitle:hover {
+    opacity: 0.9;
+}
+
+.entryTitle.info{
+    background: #297523;
+}
+.entryTitle.warn{
+    background: #a29b26;
+    color: #ffee35;
+}
+.entryTitle.err{
+    background: #a20e15;
+    color: #ee1018;
+}
+
+.consoleTrace{
+    overflow: hidden;
+    font-size: 12px;
+    transition: height 0.2s;
+    height: 120px;
+}
+.consoleTrace>pre{
+    white-space: pre-wrap;
+}
+
+.hidden{
+    height: 0;
+}

@@ -1,0 +1,165 @@
+
+#menu {
+    top: 0;
+    width: 100%;
+    height: 6vh;
+    background: var(--menu-bg);
+    position: fixed;
+    min-height: 1.5em;
+    box-shadow: var(--menu-shadow);
+    padding-left: calc((100% - var(--main-container-width)) / 2);
+    padding-right: calc((100% - var(--main-container-width)) / 2);
+    z-index: 101;
+    box-sizing: border-box;
+    display: flex;
+}
+
+#menu > * {
+    transition: background 0.1s;
+}
+
+#menu > div {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-right: 4px;
+}
+
+#menu a, #menu .link{
+    color: var(--link-text-color);
+    background: var(--menu-bg);
+    text-decoration: none;
+}
+
+#menu a, #menu .link{
+
+    align-content: center;
+    min-height: 1.5rem;
+    height: 100%;
+
+    padding-left: 4px;
+    padding-right: 4px;
+
+    display: inline-flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+#menu a, #menu .link{
+    cursor: pointer;
+    transition: color 0.2s, box-shadow 0.2s;
+    min-height: 1.5rem;
+}
+
+#menu a.disabled, #menu .link.disabled {
+    pointer-events: none;
+    cursor: default;
+    box-shadow: none;
+}
+
+#menu .linkContainer:hover>.link {
+    color: var(--link-text-color-hovered);
+    box-shadow: none;
+}
+
+#menu .link:active {
+    color: var(--link-text-color-active);
+    box-shadow: var(--link-shadow-active);
+}
+
+#menuPlaceholder {
+    height: 6vh;
+    width: 100%;
+    min-height: 1.5em;
+}
+
+.menuHomeButton{
+    margin-right: 15px;
+    box-sizing: border-box;
+}
+.menuHomeButton:hover{
+    border-bottom: 2px solid white;
+}
+
+.linkContainer {
+    position: relative;
+}
+.linkModify {
+    display: inline-flex;
+
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    transition: top 0.2s, opacity 0.2s;
+    font-size: var(--font-size) !important;
+    opacity: 0;
+    cursor: pointer;
+}
+.linkModify:hover{
+    background: var(--home-button-hovered) !important;
+}
+
+.linkContainer:hover > .linkModify {
+    top: calc(6vh - 1px);
+    opacity: 1;
+}
+
+.linkContainer>.submenu{
+    position: absolute;
+    display: none;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    background: var(--menu-bg);
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+.linkContainer:hover > .submenu, .submenu:hover{
+    display: block;
+}
+
+.linkContainer>.submenu>.link{
+    margin-top: 5px;
+}
+#menu .submenu .link{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+#menu .submenu .link:hover{
+    color: var(--link-text-color-hovered);
+    box-shadow: none;
+    background: var(--menu-bg-hovered);
+}
+#menu .submenu img{
+    margin-right: 10px;
+    width: 30px;
+}
+.right{
+    margin-left: auto;
+}
+.languagePicker{
+    display: inline-block !important;
+}
+
+div.optionContainer{
+    height: 34px;
+}
+div.optionContainer:hover{
+    background: #ededed;
+}
+div.optionText{
+    cursor: default;
+    display: inline-block;
+    float: left;
+    line-height: 34px;
+    margin-right: 10px;
+}
+div.optionControll{
+    box-sizing: content-box;
+    float: right;
+}
